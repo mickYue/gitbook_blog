@@ -9,7 +9,10 @@ pip install supervisor
 echo_supervisord_conf > /etc/supervisord.conf
 ```
 ####取消最后include的注释并设置file文件夹路径.
-
+```
+[include]
+files = /etc/supervisor/*.ini
+```
 ####新建配置文件,示例配置如下
 ```
 [program:webhook] 
