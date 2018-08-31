@@ -26,6 +26,7 @@ loglevel=info　;log等级
 ```
 ###启动
 ```
+
 supervisord -c /etc/supervisord.conf
 
 ```
