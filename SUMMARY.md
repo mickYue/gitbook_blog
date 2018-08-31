@@ -1,5 +1,5 @@
 bui# Summary
 
-- [服务器软件](book/default.md)
+- [服务器软件](book/supervisor.md)
     - [supervisor](book/supervisor.md)
 
