@@ -153,16 +153,6 @@
             "copyButtons": true,
             "fade": false,
             "style": "flat"
-        },
-
-        "versions": {
-            "options": [
-                {
-                    "value": "http://gitbook.com",
-                    "text": "v3.2.3"
-                }
-            ]
         }
-
     }
 }
