@@ -8,10 +8,14 @@ make && make install
 ####本机使用
 `本机使用不需要配置文件，和cp命令类似，一般及时性要求不高的使用crontab定时同步`
 - 同步本地两个目录，删除所有不同的文件(--delete表示删除源目录不存在的文件)
+
+```
 rsync -a --delete /home/mick/project/demo/ /data/wwwroot/demo
+```
 
 ####跨主机同步
 - 配置文件
+
 ```
 # /etc/rsyncd: configuration file for rsync daemon mode
 
@@ -41,20 +45,27 @@ read only = no# 只读
 auth users = test #认证用户名，和系统无关
 list = yes #客户端请求模块列表是否列出该模块
 ```
+
 - 密码文件 /etc/rsync.pass,密码文件权限必须600
+
 ```
 test:123456
 ```
+
 - 启动rsyncd,默认端口873，netstat -an | grep 873检查是否启动。注意iptables开放端口
+
 ```
 rsync --daemon --config=/etc/rsyncd.conf
 ```
+
 - 客户端请求同步文件/home/mick/project/demo/同步到服务器test_module指定的模块
+
 ```
   #生成密码文件
   echo "123456">/etc/rsync_client.pass
   chmod 600 /etc/rsync_client.pass
   rsync -avzP --delete --password-file=/etc/rsync_client.pass test@10.20.1.110::test_module /home/mick/project/demo/
 ```
+
 
 
