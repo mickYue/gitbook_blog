@@ -63,7 +63,7 @@ rsync --daemon --config=/etc/rsyncd.conf
 ```
   #生成密码文件
   echo "123456">/etc/rsync_client.pass
-  chmod 600 /etc/rsync_client.pass
+  chmod 600 /etc/rsync_client.pass #权限改为600
   rsync -avzP --delete --password-file=/etc/rsync_client.pass test@10.20.1.110::test_module /home/mick/project/demo/
 ```
 
